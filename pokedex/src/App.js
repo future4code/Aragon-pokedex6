@@ -1,10 +1,14 @@
-import react from "react";
+import react, { createContext, useState } from "react";
+import Router from "./routes/router";
 
-export const App = () => {
+export const StatusContext = createContext();
+
+function App() {
   return (
     <>
-      <Router/>
+      <Router />
     </>
   );
 }
 
+export default App;
