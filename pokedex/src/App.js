@@ -1,6 +1,6 @@
 import react, { createContext, useState } from "react";
-import { GlobalState } from "./Clobal/GlobalState";
-import Router from "./routes/router";
+import { GlobalState } from "./global/GlobalState";
+import Router from "./routes/Router";
 
 export const StatusContext = createContext();
 
