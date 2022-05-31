@@ -14,36 +14,36 @@ export const Header = (props) => {
     switch (props.currentPage) {
       case "pokelist":
         return (
-          <>
+          <main>
             <h1>Pokelist</h1>
             <nav>
               <button onClick={() => goToPokedex(navigate)}>
                 Go to Pokedex
               </button>
             </nav>
-          </>
+          </main>
         );
       case "pokedex":
         return (
-          <>
+          <main>
             <h2>Pokedex</h2>
             <nav>
               <button onClick={() => goToPokeList(navigate)}>
                 Go to Pokelist
               </button>
             </nav>
-          </>
+          </main>
         );
       case "pokedetails":
         return (
-          <>
+          <main>
             <h1>Details</h1>
             <nav>
               <button onClick={() => goPreviousPage(navigate)}>
                 Back previous page
               </button>
             </nav>
-          </>
+          </main>
         );
       default:
         return;

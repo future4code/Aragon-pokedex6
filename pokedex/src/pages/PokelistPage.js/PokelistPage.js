@@ -1,13 +1,14 @@
-import React from "react";
+import { useContext } from "react";
+import { GlobalContext } from "../../Clobal/GlobalState";
 import { Header } from "../../components/Header/Header";
 import { PokeCard } from "../../components/Pokecard/Pokecard";
-import useRequestData from "../../hooks/useRequestData";
 
 export const PokelistPage = (props) => {
-  const [pokemons] = useRequestData("list?limit=20&offset=0", []);
+  const context = useContext(GlobalContext);
+  const { pokemons } = context.states;
 
   const pokeList = pokemons.map((pokemon) => {
-    return <PokeCard key={pokemon.id} pokemon={pokemon} />;
+    return <PokeCard key={pokemon.id} pokemon={pokemons} />;
   });
 
   return (
