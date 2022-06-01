@@ -5,40 +5,54 @@ import { Url } from "../constants/urls";
 import { GlobalContext } from "./GlobalContext";
 
 export const GlobalState = (props) => {
-    const [pokeList, setPokeList] = useState([]);
-    const [pokemon, setPokemon] = useState({});
+  const [pokeList, setPokeList] = useState([]);
+  const [pokedex, setPokedex] = useState([]);
 
-  const getData = () => {
-    axios
-      .get(`${Url}/list?limit=20&offset=0`)
-      .then((res) => {
-        setPokeList(res.data);
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
+  const getData = async () => {
+    try {
+      const res = await axios.get(`${Url}/list?limit=151   &offset=0`);
+      const requests = res.data.map((item) => axios.get(`${Url}/${item.name}`));
+
+      const responses = await Promise.all(requests);
+      const list = responses.map((item) => item.data);
+      setPokeList(list);
+    } catch (err) {
+      console.error("Erro ao buscar lista de pokemons");
+    }
   };
 
-  const getPokeDetails = (pokename) => {
-    axios.get(`${Url}/${pokename}`)
-    .then((res) => {
-      setPokemon(res.data);
-    }).catch((err) => {
-      console.log(err.message);
-    })
-  }
+  // const getData = () => {
+  //   axios
+  //     .get(`${Url}/list?limit=20&offset=0`)
+  //     .then((res) => {
+  //       setPokeList(res.data);
+  //     })
+  //     .catch((err) => {
+  //       alert(err.message);
+  //     });
+  // };
 
-//   useEffect(() => {
-//     getData();
-//   }, []);
+  // const getPokeDetails = (pokename) => {
+  //   axios
+  //     .get(`${Url}/${pokename}`)
+  //     .then((res) => {
+  //       setPokemon(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.message);
+  //     });
+  // };
 
-  const states = {pokeList, pokemon};
-  const setters = { setPokeList, setPokemon };
-  const getters = { getData, getPokeDetails }
+  //   useEffect(() => {
+  //     getData();
+  //   }, []);
 
+  const states = { pokeList, pokedex };
+  const setters = { setPokeList, setPokedex };
+  const getters = { getData };
 
   return (
-    <GlobalContext.Provider value={{states, setters, getters}}>
+    <GlobalContext.Provider value={{ states, setters, getters }}>
       {props.children}
     </GlobalContext.Provider>
   );
