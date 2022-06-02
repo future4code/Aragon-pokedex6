@@ -7,17 +7,32 @@ import styled from "styled-components";
 const Div = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 `;
 
 export const PokelistPage = () => {
-  const { states, getters } = useContext(GlobalContext);
-  const { pokeList, pokedex } = states;
+  const { states, getters, setters } = useContext(GlobalContext);
+  const { setPage } = setters;
+  const { pokeList, pokedex, page } = states;
   const { getData } = getters;
 
   useEffect(() => {
     getData();
   }, []);
+
+  const changePage = (num) => {
+    const nextPage = page + num;
+
+    setPage(nextPage);
+    getData(nextPage);
+  };
 
   const pokeMap =
     pokeList.length > 0 ? (
@@ -47,6 +62,16 @@ export const PokelistPage = () => {
     <section>
       <Header currentPage={"pokelist"} />
       <hr />
+      <Nav>
+        <h2>Selecione uma página</h2>
+        {page !== 1 && (
+          <button onClick={() => changePage(-1)}>Voltar página</button>
+        )}
+        <span> Página: {page} </span>
+        {pokeList.length && (
+          <button onClick={() => changePage(1)}>Próxima página</button>
+        )}
+      </Nav>
       <Div>{pokeMap}</Div>
     </section>
   );

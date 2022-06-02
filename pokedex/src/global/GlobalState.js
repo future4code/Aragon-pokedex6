@@ -7,10 +7,15 @@ import { GlobalContext } from "./GlobalContext";
 export const GlobalState = (props) => {
   const [pokeList, setPokeList] = useState([]);
   const [pokedex, setPokedex] = useState([]);
+  const [page, setPage] = useState(1);
 
-  const getData = async () => {
+  const limit = 20;
+
+  const getData = async (currentPage) => {
     try {
-      const res = await axios.get(`${Url}/list?limit=151   &offset=0`);
+      const res = await axios.get(
+        `${Url}/list?limit=${limit}&offset=${limit * (currentPage - 1)}`
+      );
       const requests = res.data.map((item) => axios.get(`${Url}/${item.name}`));
 
       const responses = await Promise.all(requests);
@@ -21,34 +26,8 @@ export const GlobalState = (props) => {
     }
   };
 
-  // const getData = () => {
-  //   axios
-  //     .get(`${Url}/list?limit=20&offset=0`)
-  //     .then((res) => {
-  //       setPokeList(res.data);
-  //     })
-  //     .catch((err) => {
-  //       alert(err.message);
-  //     });
-  // };
-
-  // const getPokeDetails = (pokename) => {
-  //   axios
-  //     .get(`${Url}/${pokename}`)
-  //     .then((res) => {
-  //       setPokemon(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.message);
-  //     });
-  // };
-
-  //   useEffect(() => {
-  //     getData();
-  //   }, []);
-
-  const states = { pokeList, pokedex };
-  const setters = { setPokeList, setPokedex };
+  const states = { pokeList, pokedex, page };
+  const setters = { setPokeList, setPokedex, setPage };
   const getters = { getData };
 
   return (
