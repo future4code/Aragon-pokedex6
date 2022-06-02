@@ -12,6 +12,17 @@ const Section = styled.section`
   flex-direction: row;
   align-items: center;
   font-size: 1.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+`;
+
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 `;
 
 export const Header = (props) => {
@@ -21,7 +32,7 @@ export const Header = (props) => {
     switch (props.currentPage) {
       case "pokelist":
         return (
-          <main>
+          <Main>
             <Section>
               <a href="https://emoji.gg/emoji/pokeball">
                 <img
@@ -38,11 +49,12 @@ export const Header = (props) => {
                 Go to Pokedex
               </button>
             </nav>
-          </main>
+            <hr />
+          </Main>
         );
       case "pokedex":
         return (
-          <main>
+          <Main>
             <Section>
               <a href="https://emoji.gg/emoji/pokeball">
                 <img
@@ -59,11 +71,12 @@ export const Header = (props) => {
                 Go to Pokelist
               </button>
             </nav>
-          </main>
+            <hr />
+          </Main>
         );
       case "pokedetails":
         return (
-          <main>
+          <Main>
             <Section>
               <a href="https://emoji.gg/emoji/pokeball">
                 <img
@@ -80,7 +93,8 @@ export const Header = (props) => {
                 Back previous page
               </button>
             </nav>
-          </main>
+            <hr />
+          </Main>
         );
       default:
         return;
