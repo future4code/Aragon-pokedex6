@@ -3,6 +3,22 @@ import { Url } from "../../constants/urls";
 import { goToDetails } from "../../routes/coordinator";
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../global/GlobalContext";
+import styled from "styled-components";
+
+const Main = styled.main`
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  padding: 10px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  &:hover {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.05);
+  }
+`;
 
 export const PokeCard = (props) => {
   const navigate = useNavigate();
@@ -30,19 +46,27 @@ export const PokeCard = (props) => {
   //   getPokemon();
   // }, []);
 
+  const removePokemon = () => {
+    const newPokedex = pokedex.filter((pokemon) => {
+      return id !== pokemon.id;
+    });
+
+    setPokedex(newPokedex);
+  };
+
   const renderButton = () => {
     switch (props.currentPage) {
       case "pokelist":
         return <button onClick={() => addToPokedex()}>add to pokedex</button>;
       case "pokedex":
-        return <button>delete</button>;
+        return <button onClick={() => removePokemon()}>delete</button>;
       default:
         return;
     }
   };
 
   return (
-    <main>
+    <Main>
       <p>
         {name.toUpperCase()} - N°: {id}
       </p>
@@ -53,6 +77,6 @@ export const PokeCard = (props) => {
       {renderButton()}
       <button onClick={() => goToDetails(navigate, name)}>see details</button>
       <hr />
-    </main>
+    </Main>
   );
 };

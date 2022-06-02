@@ -1,7 +1,14 @@
 import React, { useContext } from "react";
+import styled from "styled-components";
 import { Header } from "../../components/Header/Header";
 import { PokeCard } from "../../components/Pokecard/Pokecard";
 import { GlobalContext } from "../../global/GlobalContext";
+
+const Main = styled.main`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+`;
 
 export const PokedexPage = () => {
   const { states } = useContext(GlobalContext);
@@ -18,10 +25,8 @@ export const PokedexPage = () => {
     <>
       <Header currentPage={"pokedex"} />
       <hr />
-      <main>
-        <h2>Pokedex list</h2>
-        {PokedexList}
-      </main>
+      <h2>Pokedex list</h2>
+      <Main>{PokedexList}</Main>
     </>
   );
 };
