@@ -91,7 +91,8 @@ export const Header = (props) => {
                 Go to Pokelist
               </Button>
             </nav>
-            <hr />
+
+            <h2>Pokedex list</h2>
           </Main>
         );
       case "pokedetails":

@@ -39,11 +39,21 @@ const Button = styled.button`
   }
 `;
 
+const Span = styled.span`
+  width: 90px;
+`;
+
 export const PokelistPage = () => {
   const { states, getters, setters } = useContext(GlobalContext);
   const { setPage } = setters;
   const { pokeList, pokedex, page } = states;
   const { getData } = getters;
+
+  useEffect(() => {
+    if (!pokeList.length) {
+      getData(page);
+    }
+  }, [pokeList]);
 
   const changePage = (num) => {
     const nextPage = page + num;
@@ -84,7 +94,7 @@ export const PokelistPage = () => {
         {page !== 1 && (
           <Button onClick={() => changePage(-1)}>Voltar página</Button>
         )}
-        <span> Página: {page} </span>
+        <Span> Página: {page} </Span>
         {pokeList.length && (
           <Button onClick={() => changePage(1)}>Próxima página</Button>
         )}

@@ -24,8 +24,6 @@ export const PokedexPage = () => {
   return (
     <>
       <Header currentPage={"pokedex"} />
-      <hr />
-      <h2>Pokedex list</h2>
       <Main>{PokedexList}</Main>
     </>
   );
