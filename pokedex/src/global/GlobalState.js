@@ -1,6 +1,5 @@
 import axios from "axios";
-import React, { createContext, useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import React, { useState } from "react";
 import { Url } from "../constants/urls";
 import { GlobalContext } from "./GlobalContext";
 

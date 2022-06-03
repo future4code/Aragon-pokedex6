@@ -25,6 +25,26 @@ const Main = styled.main`
   align-content: center;
 `;
 
+const Button = styled.button`
+  margin: 5%;
+  border-radius: 10pc;
+  &:hover {
+    background-color: red;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+      rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+      rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+      rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+      rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+      rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  }
+`;
+
+const Div = styled.div`
+  background-color: white;
+  width: 100%;
+`;
+
 export const Header = (props) => {
   const navigate = useNavigate();
 
@@ -45,9 +65,9 @@ export const Header = (props) => {
               <h2>Pokelist</h2>
             </Section>
             <nav>
-              <button onClick={() => goToPokedex(navigate)}>
+              <Button onClick={() => goToPokedex(navigate)}>
                 Go to Pokedex
-              </button>
+              </Button>
             </nav>
             <hr />
           </Main>
@@ -67,9 +87,9 @@ export const Header = (props) => {
               <h2>Pokedex</h2>
             </Section>
             <nav>
-              <button onClick={() => goToPokeList(navigate)}>
+              <Button onClick={() => goToPokeList(navigate)}>
                 Go to Pokelist
-              </button>
+              </Button>
             </nav>
             <hr />
           </Main>
@@ -89,9 +109,9 @@ export const Header = (props) => {
               <h2>Poke details</h2>
             </Section>
             <nav>
-              <button onClick={() => goPreviousPage(navigate)}>
+              <Button onClick={() => goPreviousPage(navigate)}>
                 Back previous page
-              </button>
+              </Button>
             </nav>
             <hr />
           </Main>
@@ -101,5 +121,5 @@ export const Header = (props) => {
     }
   };
 
-  return <>{renderHeader()}</>;
+  return <Div>{renderHeader()}</Div>;
 };
