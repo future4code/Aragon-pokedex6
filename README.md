@@ -3,7 +3,7 @@
 Nome dos integrantes: 
 - fernando
 - lucas macedo
-- balle
+- isabelle
 
 Link do Surge: https://exotic-stage.surge.sh/
 
