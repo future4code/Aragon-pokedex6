@@ -3,11 +3,13 @@ import styled from "styled-components";
 import { Header } from "../../components/Header/Header";
 import { PokeCard } from "../../components/Pokecard/Pokecard";
 import { GlobalContext } from "../../global/GlobalContext";
+import "./PokedexPage.css";
 
-const Main = styled.main`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 `;
 
 export const PokedexPage = () => {
@@ -22,9 +24,9 @@ export const PokedexPage = () => {
   });
 
   return (
-    <>
+    <Section>
       <Header currentPage={"pokedex"} />
-      <Main>{PokedexList}</Main>
-    </>
+      <main className="pokedex">{PokedexList}</main>
+    </Section>
   );
 };
