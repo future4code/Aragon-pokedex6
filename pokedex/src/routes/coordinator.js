@@ -1,7 +1,7 @@
 import React from "react";
 
 export const goToPokeList = (navigate) => {
-  navigate("/");
+  navigate("/pokelist");
 };
 
 export const goToPokedex = (navigate) => {

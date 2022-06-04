@@ -84,14 +84,14 @@ export const PokelistPage = () => {
   return (
     <Section>
       <Header currentPage={"pokelist"} />
-      <h2>Selecione uma página</h2>
+      <h2>Select page</h2>
       <Nav>
         {page !== 1 && (
-          <Button onClick={() => changePage(-1)}>Voltar página</Button>
+          <Button onClick={() => changePage(-1)}>Back Page</Button>
         )}
-        <Span> Página: {page} </Span>
+        <Span> Page: {page} </Span>
         {pokeList.length && (
-          <Button onClick={() => changePage(1)}>Próxima página</Button>
+          <Button onClick={() => changePage(1)}>Next page</Button>
         )}
       </Nav>
       <div className="pokelist">{pokeMap}</div>
