@@ -5,7 +5,7 @@ Nome dos integrantes:
 - lucas macedo
 - isabelle
 
-Link do Surge: https://exotic-stage.surge.sh/
+Link do Surge: https://imaginary-tent.surge.sh/
 
 O que funciona:
 - rotas
@@ -14,6 +14,7 @@ O que funciona:
 - pokedex
 - adicionar na pokedex
 - deletar da pokedex e retornar o pokemon para poke list
+- responsividade
 
 O que não funciona: 
 - todas as implementações foram feitas
