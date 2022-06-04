@@ -3,18 +3,13 @@ import { GlobalContext } from "../../global/GlobalContext";
 import { Header } from "../../components/Header/Header";
 import { PokeCard } from "../../components/Pokecard/Pokecard";
 import styled from "styled-components";
+import "./PokelistPage.css";
 
 const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   align-content: center;
-`;
-
-const Div = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
 `;
 
 const Nav = styled.nav`
@@ -99,7 +94,7 @@ export const PokelistPage = () => {
           <Button onClick={() => changePage(1)}>Próxima página</Button>
         )}
       </Nav>
-      <Div>{pokeMap}</Div>
+      <div className="pokelist">{pokeMap}</div>
     </Section>
   );
 };
