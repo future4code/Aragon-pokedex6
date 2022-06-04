@@ -5,7 +5,7 @@ Nome dos integrantes:
 - lucas macedo
 - isabelle
 
-Link do Surge: https://imaginary-tent.surge.sh/
+Link do Surge: https://wistful-frogs.surge.sh/
 
 O que funciona:
 - rotas
