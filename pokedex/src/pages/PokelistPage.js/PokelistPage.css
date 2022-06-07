@@ -1,0 +1,12 @@
+.pokelist {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .pokelist {
+    display: flex;
+    flex-direction: column;
+  }
+}

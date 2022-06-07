@@ -1,16 +1,20 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- fernando
+- lucas macedo
+- isabelle
 
-Link do Surge: www.link.com.br
+Link do Surge: https://wistful-frogs.surge.sh/
 
 O que funciona:
-- Item 1
-- Item 2
+- rotas
+- botões de transiçao
+- poke list
+- pokedex
+- adicionar na pokedex
+- deletar da pokedex e retornar o pokemon para poke list
+- responsividade
 
 O que não funciona: 
-- Item 3
-- Item 4
+- todas as implementações foram feitas
